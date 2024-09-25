@@ -2,7 +2,7 @@
 
 # Compiled output
 /dist
-/inspiration
+inspiration
 /tmp
 /out-tsc
 /bazel-out
