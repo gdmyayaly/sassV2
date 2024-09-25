@@ -1,0 +1,54 @@
+<div class="text-start">
+    <a [routerLink]="['/admin','section',idSectionType]" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+      Back
+    </a>
+</div>
+<div class="w-full mt-4 mx-auto">
+  <form [formGroup]="form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 row">
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="sectionName">Nom de la section</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="sectionName" formControlName="sectionName">
+      </div>
+      <!-- <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="path">Path Twig</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="path" formControlName="path">
+      </div>
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="css">Css Twig</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="css" formControlName="css">
+      </div>
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="js">JS Twig</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="js" formControlName="js">
+      </div> -->
+      <!-- <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="urlPreview">Url de Prévisialisation</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="urlPreview" formControlName="urlPreview">
+      </div> -->
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="urlPreview">Url de Prévisialisation</label>
+        <select formControlName="type" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+          <option value="Section">Section</option>
+          <option value="Page">Page</option>
+        </select>
+      </div>
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <input type="file" name="file" id="file" class="inputfile" #Image accept="image/*" (change)="handleFileInput($event)" />
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file">Galerie Mobile</label>
+        <div *ngIf="files" class="mb-3">
+          <img [src]="files.url" alt="{{files.name}}" style="max-height: 250px;">
+        </div>
+      </div>
+    
+      <div class="mb-3 col-12 col-md-6 col-lg-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="defaultValue">Valeur par défaut</label>
+        <textarea class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="defaultValue" formControlName="defaultValue" rows="5"></textarea>
+      </div>
+      <button [disabled]="!form.valid" (click)="submitData()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Valider
+      </button>
+   
+  </form>
+</div>
+
+

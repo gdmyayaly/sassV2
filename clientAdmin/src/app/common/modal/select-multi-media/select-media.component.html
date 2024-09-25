@@ -1,0 +1,30 @@
+<div id="myModal" class="modal" >
+
+  <div class="modal-content">
+    <span class="close" (click)="closeAlert()">&times;</span>
+    <div class="row">
+      <div class="col-6 col-md-6 col-lg-4" *ngFor="let item of selectedMediaService.listMedia; index as index;">
+        <ion-card >
+          <span class="check" *ngIf="isSelected(item)"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+          <div *ngIf="item.documentType.startsWith('image')">
+            <img  alt="{{item.documentOriginalName}}" [src]="item.documentUrl" style="max-height: 250px;" />
+            <ion-button fill="outline" [ngClass]="{'ma-classe-active': isSelected(item), 'ma-classe-inactive': !isSelected(item)}"(click)="selected(item)">
+              <span *ngIf="!isSelected(item)">Selectionner</span>
+              <span *ngIf="isSelected(item)">Désélectionner</span>
+            </ion-button>
+          </div>
+          <div *ngIf="item.documentType.startsWith('video')">
+            <video [src]="item.documentUrl" controls width="100%" height="250px"></video>
+            <ion-button fill="outline" [ngClass]="{'ma-classe-active': isSelected(item), 'ma-classe-inactive': !isSelected(item)}"(click)="selected(item)">
+              <span *ngIf="!isSelected(item)">Selectionner</span>
+              <span *ngIf="isSelected(item)">Désélectionner</span>
+            </ion-button>
+          </div>
+          <!-- <img (click)="selected(item)" alt="{{item.documentOriginalName}}" [src]="item.documentUrl" style="max-height: 250px;" /> -->
+        </ion-card>
+      </div>
+    </div>
+  <ion-button (click)="submitSelection()">Valider</ion-button>
+  </div>
+
+</div>

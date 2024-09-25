@@ -1,0 +1,202 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajout Produit
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p style="text-align: center;margin: 5px;">
+    <ion-button routerLink="/produit" color="dark">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      Produit
+    </ion-button>
+    </p>
+  <div class="container pt-5" *ngIf="product">
+    <form [formGroup]="product" class="m-2 formulaire">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" formControlName="nom" id="nom" placeholder="Nom du produit">
+      </div>
+      <!-- <div class="form-group">
+        <label for="category">Catégorie</label>
+        <select class="form-control" id="category" formControlName="categorie">
+          <option *ngFor=" let item of listCategorie" value="{{item.id}}">{{item.nom}}</option>
+        </select>
+      </div> -->
+      <select multiple class="form-control" formControlName="categorie">
+        <optgroup *ngFor=" let item of listCategorie" label="{{item.nom}}">
+          <option value="{{item.id}}">{{item.nom}} (Global)</option>
+          <option *ngFor=" let sousCat of item.sousCategoryProducts" value="{{sousCat.id}}">{{sousCat.nom}}</option>
+        </optgroup>
+      </select>
+
+      <div class="form-group">
+        <label for="detail">Bref Description</label>
+        <textarea class="form-control" id="detail" formControlName="brefDescription" rows="1" placeholder="Bref description du produit"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="detailDescription">Longue Description</label>
+        <textarea class="form-control" id="detailDescription" formControlName="detailDescription" placeholder="Longue description du produit" rows="2"></textarea>
+      </div>
+      <div>
+        <p>Image de base</p>
+        <div class="row">
+          <div class="form-roup col-6">
+            <input type="file" name="file" id="file" class="inputfile" #Image accept="image/*" (change)="handleOneFileInput($event)" />
+            <label for="file"><ion-icon name="camera-outline"></ion-icon>Galerie Mobile</label>
+          </div>
+          <div class="form-group col-6">
+            <ion-button (click)="selectOneMediGalerie()">
+              <ion-icon slot="start" name="images-outline"></ion-icon>
+              Galerie Cloud 
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-6">
+            <div class="img_view" *ngIf="Onefile && OnemediaSelected.length!=1">
+              <div>
+                <img [src]="Onefile.url" alt="{{Onefile.name}}" style="max-height: 250px;">
+              </div>
+              <ion-button (click)="removeMediaOne('mobile')">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </div>
+            <div class="img_view" *ngIf="OnemediaSelected.length==1">
+              <img [src]="OnemediaSelected[0].documentUrl" alt="{{OnemediaSelected[0].documentOriginalName}}" style="max-height: 250px;">
+              <ion-button (click)="removeMediaOne('galerie')">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>Autres Images et/ou Vidéos</p>
+        <div class="row">
+          <div class="form-roup col-6">
+            <input type="file" name="file" id="files" class="inputfile"multiple  #Image accept="image/* video/*"  (change)="handleMultiFileInput($event)" />
+            <label for="files"><ion-icon name="camera-outline"></ion-icon>Galerie Mobile</label>
+          </div>
+          <div class="form-group col-6">
+            <ion-button (click)="selecMultitMediGalerie()">
+              <ion-icon slot="start" name="images-outline"></ion-icon>
+              Galerie Cloud 
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" >
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-6" *ngFor="let item of Multifiles; let index=index">
+            <ion-card *ngIf="item.type.startsWith('image')">
+              <img [src]="item.url" alt="{{item.name}}" style="max-height: 250px;">
+              <ion-button (click)="removeMediaOneMedia(index)">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </ion-card>
+            <ion-card *ngIf="item.type.startsWith('video')">
+              <video [src]="item.url" controls width="100%" height="250px" preload="none"></video>
+              <ion-button (click)="removeMediaOneMedia(index)">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </ion-card>
+           
+          </div>
+          <div class="col-lg-6 col-md-6 col-6" *ngFor="let item of MultimediaSelected; let index=index">
+            <ion-card *ngIf="item.documentType.startsWith('image')">
+              <img [src]="item.documentUrl" alt="{{item.documentOriginalName}}" style="max-height: 250px;">
+              <ion-button (click)="removeMediaMultiMedia(index)">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </ion-card>
+            <ion-card *ngIf="item.documentType.startsWith('video')">
+              <video [src]="item.documentUrl" controls width="100%" height="250px"></video>
+
+              <ion-button (click)="removeMediaMultiMedia(index)">
+                <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                Supprimer
+              </ion-button>
+            </ion-card>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <p>Variations et prix *Optionnel</p>
+        <ion-accordion-group>
+          <ion-accordion value="quantity">
+            <ion-item slot="header" color="light">
+              <ion-label>Stock</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <div class="form-group">
+                <label for="qt">Quantité</label>
+                <input type="text" class="form-control" formControlName="qt" id="qt" placeholder="Quantité du produit">
+              </div>
+            </div>
+          </ion-accordion>
+          <ion-accordion value="first">
+            <ion-item slot="header" color="light">
+              <ion-label>Prix</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <div class="form-group">
+                <label for="prix">Prix</label>
+                <input type="text" class="form-control" formControlName="prix" id="prix" placeholder="Prix">
+              </div>
+              <div class="form-group">
+                <label for="prixPromo">Prix Promo</label>
+                <input type="text" class="form-control" formControlName="prixPromo" id="prixPromo" placeholder="Prix Promo">
+              </div>
+              <div class="form-group">
+                <label for="promoStart">Debut Promotion</label>
+                <input type="date" class="form-control" formControlName="promoStart" id="promoStart">
+              </div>
+              <div class="form-group">
+                <label for="promoEnd">Fin Promo</label>
+                <input type="date" class="form-control" formControlName="promoEnd" id="promoEnd">
+              </div>
+            </div>
+          </ion-accordion>
+          <ion-accordion value="second">
+            <ion-item slot="header" color="light">
+              <ion-label>Couleurs</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ngx-colors ngx-colors-trigger style="display: inline-block; margin:5px;" formControlName="color0"></ngx-colors>
+              <span *ngIf="countColor.length!=0" >
+                <span *ngFor="let item of countColor;  index as index; let last = last" style="position: relative;">    
+                  <ngx-colors ngx-colors-trigger style="display: inline-block; margin:5px;" formControlName="color{{index+1}}"></ngx-colors>
+                  <ion-icon *ngIf="last" name="remove-circle-outline" class="removePosition" (click)="removeColorControl(index)"></ion-icon>
+                </span>
+              </span>
+              <ion-icon name="add-circle-outline" style="font-size: 30px;" (click)="moreColor()"></ion-icon>
+            </div>
+          </ion-accordion>
+          <ion-accordion *ngFor="let item of allVariations; let index=index" value="{{item.nom}}">
+            <ion-item slot="header" color="light">
+              <ion-label>{{item.nom}}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <span class="valeur" *ngFor="let val of item.valeur" (click)="SelectedOneOptionalInput(item,val,index)"  [class.active]="item.selected?.includes(val)">{{val}}</span>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+      <ion-button expand="block" [disabled]="!product.valid" (click)="Valider()">Ajouter Produit</ion-button>
+    </form>
+  </div>
+</ion-content>

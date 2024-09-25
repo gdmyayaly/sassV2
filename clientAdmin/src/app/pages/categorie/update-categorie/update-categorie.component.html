@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Catégorie de produit
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="container pt-5">
+    <form [formGroup]="categorie" class="m-2 formulaire">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" formControlName="nom" id="nom" placeholder="Categorie">
+      </div>
+      <div class="form-group">
+        <label for="detail">Detail</label>
+        <textarea class="form-control" id="detail" formControlName="detail" rows="2"></textarea>
+      </div>
+      <div class="row">
+        <div class="form-roup col-6">
+          <input type="file" name="file" id="file" class="inputfile" #Image accept="image/" (change)="handleFileInput($event)" />
+          <label for="file"><ion-icon name="camera-outline"></ion-icon>Galerie Mobile</label>
+        </div>
+        <div class="form-group col-6">
+          <ion-button (click)="selectMediGalerie()">
+            <ion-icon slot="start" name="images-outline"></ion-icon>
+            Galerie Cloud 
+          </ion-button>
+        </div>
+      </div>
+      <div *ngIf="imgPreview!='' && mediaSelected.length==0">
+        <img src="{{imgPreview}}" alt="" style="max-height: 250px;">
+
+      </div>
+      <div *ngIf="files && mediaSelected.length==0">
+        <img [src]="files.url" alt="{{files.name}}" style="max-height: 250px;">
+      </div>
+      <div *ngIf="mediaSelected.length>=1">
+        <img [src]="mediaSelected[0].documentUrl" alt="{{mediaSelected[0].documentOriginalName}}" style="max-height: 250px;">
+      </div>
+      <ion-button expand="block" [disabled]="!categorie.valid" (click)="Valider()">Modifier Categorie</ion-button>
+    </form>
+  </div>
+</ion-content>

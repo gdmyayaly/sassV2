@@ -1,0 +1,28 @@
+<div id="myModal" class="modal" (click)="closeAlert()">
+
+  <div class="modal-content">
+    <span class="close" (click)="closeAlert()">&times;</span>
+    <p *ngIf="message.length==1; else elseBlock">
+      <span *ngIf="message[0]=='Expired JWT Token';else elseMessage">Connexion Exourer</span>
+      <ng-template #elseMessage> {{message[0]}}</ng-template>
+     
+    </p>
+    <!-- <p #elseBlock></p> -->
+    <ng-template #elseBlock>
+      <p>Nous somme désoler une erreur à été rencontrer, veuillez le signaler à l'administrateur en lui faisant une capture d'écran</p>
+      <p>{{message[1].detail}}</p>
+      <p *ngFor="let mess of message[1].trace">{{mess.file}}</p>
+
+    </ng-template>
+    <!-- <p *ngFor="let mess of message">{{message}}</p> -->
+  </div>
+
+</div>
+<!-- https://ionicframework.com/docs/api/toast -->
+<!-- <ion-alert
+  [isOpen]="statusOpen"
+  header="Alert!"
+  [message]="message ?? 'Nous somme désoler une erreur à été rencontrer, veuillez le signaler à l\'administrateur en lui faisant une capture d\'écran'"
+  [buttons]="alertButtons"
+  (didDismiss)="closeAlert($event)"
+></ion-alert> -->

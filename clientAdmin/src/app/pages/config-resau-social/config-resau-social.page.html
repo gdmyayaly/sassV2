@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Resaux Sociaux</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="container-fluid contenue">
+    <div class="formulaire">
+      <form [formGroup]="whatsapp">
+        
+        <div class="form-group">
+          <label for="telephone"><ion-icon name="logo-whatsapp"></ion-icon>Numero de Téléphone WhatsApp</label>
+          <input type="number" formControlName="numero" class="form-control" id="telephone" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="welcomeMessage"><ion-icon name="logo-whatsapp"></ion-icon>Message de Bienvenue WhatsApp</label>
+          <textarea class="form-control" formControlName="homemessage" id="welcomeMessage" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="buyMessage"><ion-icon name="logo-whatsapp"></ion-icon>Message d'achat de Produit WhatsApp</label>
+          <textarea class="form-control" formControlName="shopmessage" id="buyMessage" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="facebook"><ion-icon name="logo-facebook"></ion-icon>Facebook</label>
+          <input type="text" formControlName="facebook" class="form-control" id="facebook" >
+        </div>
+        <div class="form-group">
+          <label for="instagram"><ion-icon name="logo-instagram"></ion-icon>Instagram</label>
+          <input type="text" formControlName="instagram" class="form-control" id="instagram" >
+        </div>
+        <div class="form-group">
+          <label for="snapchat"><ion-icon name="logo-snapchat"></ion-icon>Snapchat</label>
+          <input type="text" formControlName="snapchat" class="form-control" id="snapchat" >
+        </div>
+        <ion-button type="submit" expand="block" color="success" (click)="saveData()">Modifier</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

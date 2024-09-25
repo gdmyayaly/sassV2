@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Formulaire Galerie
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p style="text-align: center;line-height: 40px;margin: 5px;">
+    <ion-button routerLink="/galerie" color="dark">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      Galerie
+    </ion-button>
+    </p>
+
+  <div class="text-center mt-3">
+    <div class="form-roup">
+      <input type="file" name="files" id="files" class="inputfile" multiple  #Image accept="image/* video/*" (change)="handleFileInputMultiple($event)" />
+      <label for="files">Sélectionner les images et vidéos à importer.</label>
+    </div>
+    <p>{{files.length}} Fichiers de {{getTotalSize()}} </p>
+    <ion-button (click)="submitForm()" *ngIf="getTotalSize()!='0.00 MB'" color="dark">
+      <ion-icon name="cloud-upload-outline"></ion-icon>Enregistrer</ion-button>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-6" *ngFor="let item of files; let index=index">
+        <div class="img_view">
+          <div *ngIf="item.type.startsWith('image')">
+            <img [src]="item.url" alt="{{item.name}}" style="max-height: 250px;">
+          </div>
+          <div *ngIf="item.type.startsWith('video')">
+            <video [src]="item.url" controls width="100%" height="250px"></video>
+          </div>
+          <p>{{item.name}} | {{item.size}}</p>
+          <ion-button (click)="deleteMultiplePic(index)">
+           <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+           Supprimer
+         </ion-button>
+        </div>
+      </div>
+    </div>
+ </div>  
+</ion-content>

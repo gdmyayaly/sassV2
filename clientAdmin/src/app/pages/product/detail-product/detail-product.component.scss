@@ -1,0 +1,34 @@
+.otherImageProduct{
+    object-fit: cover;
+    height: 150px;
+    width: 100%;
+}
+.removePosition{
+    color: red;
+    position: absolute;
+    bottom: -17px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.valeur{
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 0 3px;
+    &.active{
+        background-color: green;
+        color: white;
+        font-weight: bold;
+    }
+    &.removed{
+        background-color: red;
+        color: white;
+        font-weight: bold;
+    }
+}
+.inputfile + label {
+    font-size: 15px;
+    padding: 10px;
+    }

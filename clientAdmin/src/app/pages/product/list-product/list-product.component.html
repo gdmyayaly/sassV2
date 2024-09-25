@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Produits
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="container my-5">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input
+            label=""
+            labelPlacement="stacked"
+            [clearInput]="true"
+            placeholder="Saisissez le nom du produit"
+            value=""
+          >
+          </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-select label="Trier par : " placeholder="Nom,Date,Popularité">
+              <ion-select-option value="apple">Popularité</ion-select-option>
+              <ion-select-option value="banana">Nom</ion-select-option>
+              <ion-select-option value="orange">Ordre Croissant</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-list>
+
+
+      
+    </ion-list>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of listProduct">
+        <ion-card>
+          <div class="img_product" (click)="previewImg(item)">
+            <img [alt]="item.nom" [src]="item.image" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{item.nom}}</ion-card-title>
+            <ion-card-subtitle>
+              <strong>Catégorie :</strong> 
+              <span class="badge badge-dark mx-1" *ngFor="let cat of item.productCategoryValues">
+                <span *ngIf="cat.sousCategory==null">{{cat.category.nom}}</span>
+                <span *ngIf="cat.category==null">{{cat.sousCategory.nom}}</span>
+              </span>              
+            </ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <p><strong>Description:</strong><br> {{item.brefDescription}}</p>
+            <p *ngIf="item.prix!=null"><strong>Prix</strong> :{{item.prix}} <span *ngIf="item.prixPromo"></span></p>
+            <p *ngIf="item.promoStart!=null"> En promotion du {{item.promoStart |date :'dd/MM/yyyy'}}  au {{item.promoEnd |date :'dd/MM/yyyy'}}</p>
+            <p *ngIf="item.colors[0]!=''"><strong>Couleur</strong> <span class="badge mx-1" style="color: #fff;" *ngFor="let color of item.colors" [ngStyle]="{'background-color':color}">{{color}}</span></p>
+            <div *ngIf="item.productVariationValues!=[]">
+              <p *ngFor="let variation of item.productVariationValues"><strong>{{variation.variationProduct.nom}}</strong>: <span class="badge mx-1 badge-dark" *ngFor="let val of variation.value">{{val}}</span> </p>
+            </div>
+            <ion-list>
+              <ion-item>
+                <span *ngFor="let image of item.otherImage">
+                  <ion-thumbnail *ngIf="getTypeMediaFromURL(image)=='image'" style="margin: 0 10px;">
+                    <img  alt="" [src]="image" (click)="previewOtherImg(image)" />
+                    <!-- <video *ngIf="getTypeMediaFromURL(image)=='video'" [src]="image" controls width="100%" height="100%" autoplay="false"></video> -->
+                  </ion-thumbnail>
+                </span>
+                
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-button fill="outline" [routerLink]="['detail',item.id]" color="medium">Détail</ion-button>
+          <ion-button fill="outline" color="danger" (click)="removeProduct(item)">Supprimer</ion-button>
+
+        </ion-card>
+      </div>
+    </div>
+  </div>
+<ion-fab horizontal="end" vertical="bottom" slot="fixed" style="margin-bottom: 50px;">
+  <ion-fab-button color="light" class="mt-3">
+    <ion-icon name="add-outline" routerLink="/produit/add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-alert
+[isOpen]="showOpenAlert"
+header="Alert! Suppression du produit {{selectedProduct?.nom}}"
+message="Êtes-vous sûr de vouloir supprimer cet produit, cela entrenera ça disparition totale dans le site web"
+[buttons]="alertButtons"
+(didDismiss)="setResult($event)"
+></ion-alert>
+</ion-content>

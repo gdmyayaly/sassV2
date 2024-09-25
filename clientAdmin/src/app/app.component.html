@@ -1,0 +1,42 @@
+<div *ngIf="isAuth">
+  <app-loadder *ngIf="isLoadingStatus"></app-loadder>
+  <app-alert-message *ngIf="showModalMessage"></app-alert-message>
+  <app-preview-media *ngIf="showModalPreviewMedia"></app-preview-media>
+  <app-select-media *ngIf="showModalMediaSelection"></app-select-media>
+  <app-select-multi-media *ngIf="showModalMediaMultiSelection"></app-select-multi-media>
+  <ion-app>
+  <ion-menu menuId="main-menu" contentId="main">
+      <ion-content>
+      <div class="menu-header-bg">
+      </div>
+      <div class="header-content">
+          <img src="assets/logo.jpeg" alt="Logo">
+          <ion-label>
+          <h2 *ngIf="!userInfos">Yaya LY</h2>
+          <h2 *ngIf="userInfos">{{userInfos.utilisateur.prenom }} {{userInfos.utilisateur.nom }}</h2>
+          <p>Administrateur</p>
+          </ion-label>
+      </div>
+      <div class="action-button">
+          <ion-button routerLink="/user">
+          <ion-icon name="settings-outline"></ion-icon>           
+          Compte
+          </ion-button>
+      </div>
+      <ion-list class="menu-items" lines="none">
+          <ion-item *ngFor="let item of link" [routerLink]="item.url" routerLinkActive="active">
+          <ion-icon [name]="item.icon"></ion-icon>{{item.title}}
+          </ion-item>
+          <ion-item  routerLink="/login" routerLinkActive="active">
+              <ion-icon name="log-in-outline"></ion-icon>Deconnexion
+          </ion-item>
+      </ion-list> 
+      </ion-content>
+  </ion-menu>
+  <!-- <app-content></app-content> -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-app>
+</div>
+<div *ngIf="!isAuth">
+  <ion-router-outlet></ion-router-outlet>
+</div>

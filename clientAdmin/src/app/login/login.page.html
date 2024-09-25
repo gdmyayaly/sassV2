@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="container espacement">
+    <h1 class="text-center">Connexion</h1>
+    <div class="img_logo text-center">
+      <img src="assets/logo.jpeg" alt="LOGO">
+    </div>
+    <div class="formulaire">
+      <form [formGroup]="user">
+        <ion-item class="ion-margin-bottom">
+          <ion-input type="text" formControlName="username" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-bottom">
+          <ion-input [type]="[passwordtype]" formControlName="password" placeholder="Password"></ion-input>
+          <ion-icon [name]="iconEye" slot="end" (click)="checkpassword()"></ion-icon>
+        </ion-item>       
+        <p class="text-danger" *ngIf="iserror">Email et/ou Mot de passe incorrect(s)</p>
+        <ion-button *ngIf="!isloading" expand="block" [disabled]="!user.valid" shape="round" (click)="login()" type="submit" color="dark">Se Connecter
+        </ion-button>
+        <ion-button *ngIf="isloading" expand="block" shape="round" disabled (click)="login()" type="submit" color="dark">Chargement...
+          <i class="fa fa-spinner fa-spin"></i>
+        </ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

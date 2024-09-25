@@ -1,0 +1,15 @@
+<div id="myModal" class="modal" (click)="closeAlert()">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeAlert()">&times;</span>
+    <div *ngIf="image.type.startsWith('image')">
+      <img alt="image" class="img_card" [src]="image.url" />
+    </div>
+    <div *ngIf="image.type.startsWith('video')">
+      <video [src]="image.url" controls width="100%" height="250px"></video>
+    </div>
+    <!-- <img [src]="image" alt="image"> -->
+  </div>
+
+</div>

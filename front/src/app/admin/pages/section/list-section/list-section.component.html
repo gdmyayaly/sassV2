@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+        <div>
+            <a [routerLink]="['/admin','section-type']" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                Back
+            </a>
+        </div>
+        <div>
+            <a [routerLink]="['/admin','section',idSectionType,'add']" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                Ajouter
+            </a>
+        </div>
+      </div>
+    <div class="mt-5">
+        <div class="row">
+            <div class="col-12 col-md-4" *ngFor="let section of sectionList">   
+                <div class="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <div class="p-6">
+                        <img src="{{section.image}}" alt="">
+                        <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            Nom : {{section.name}}
+                        </h5>
+                
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                            {{section.type}}
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a [routerLink]="['/admin','section',section.id]" class="mt-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Explorer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

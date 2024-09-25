@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Configutation du site</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+ <div class="container">
+  <p style="text-align: center;line-height: 40px;margin: 5px;">
+    <ion-button routerLink="/config-website" color="dark" fill="outline">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      Configuration du site web
+    </ion-button>
+    </p>
+    
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of listTypeSectionDefault">
+      <ion-card>
+
+        <img alt="Illustration de la section {{item.nom}}" src="{{getImg(item.nom)}}" />
+        <ion-card-header>
+          <ion-card-title>{{item.nom}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{item.description}}
+        </ion-card-content>
+        <div style="text-align: center;" class="my-2">
+          <ion-button  color="dark" [routerLink]="['detail',item.id]">Explorer</ion-button>
+        </div>
+
+      </ion-card>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <ion-card>
+        <img alt="Illustration de la section" src="assets/img/website.svg" />
+        <ion-card-header>
+          <ion-card-title>Page Web</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Créer et personaliser les différents pages de votre site web
+        </ion-card-content>
+        <div style="text-align: center;" class="my-2">
+          <ion-button  color="dark" routerLink="/config-website/website/custom">Explorer</ion-button>
+        </div>
+      </ion-card>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <ion-card>
+        <img alt="Illustration de la section" src="assets/img/module.svg" />
+        <ion-card-header>
+          <ion-card-title>Mes Modules</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Créer et personaliser les différents pages de votre site web
+        </ion-card-content>
+        <div style="text-align: center;" class="my-2">
+          <ion-button  color="dark" routerLink="/config-website/website/module">Explorer</ion-button>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+ </div>
+</ion-content>

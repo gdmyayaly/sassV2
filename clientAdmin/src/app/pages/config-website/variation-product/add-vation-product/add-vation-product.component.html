@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ajout Variation</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p style="text-align: center;margin: 5px;">
+    <ion-button routerLink="/config-website/variation-product" color="dark">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      Listes des variations
+    </ion-button>
+    </p>
+  <div class="container pt-5">
+    <form [formGroup]="variationProduct" class="m-2 formulaire">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" formControlName="nom" id="nom">
+      </div>
+      <div class="form-group">
+        <label for="valeur0">Valeur</label>
+        <input type="text" class="form-control" formControlName="valeur0" id="valeur0" >
+      </div>
+      <div class="form-group" *ngFor="let item of listValeur;let index = index;">
+        <label for="valeur{{index+1}}">Valeur {{index+1}}</label>
+        <input type="text" class="form-control" formControlName="valeur{{index+1}}" id="valeur{{index+1}}" >
+      </div>
+      <ion-button (click)="addValeur()">
+        <ion-icon name="add-circle-outline" ></ion-icon>
+        <!-- <ion-icon name="remove-circle-outline" color="danger" *ngIf="listValeur.length!=0" (click)="removeValeur()" ></ion-icon> -->
+      </ion-button>
+      <ion-button *ngIf="listValeur.length!=0" color="danger" (click)="removeValeur()">
+        <!-- <ion-icon name="add-circle-outline" ></ion-icon> -->
+        <ion-icon name="remove-circle-outline"  ></ion-icon>
+      </ion-button>
+      <ion-button expand="block" [disabled]="!variationProduct.valid" (click)="Valider()">Ajouter Variation</ion-button>
+      <!-- <ion-button expand="block" [disabled]="!variationProduct.valid" (click)="Valider()">Ajouter Variation</ion-button> -->
+    </form>
+  </div>
+</ion-content>

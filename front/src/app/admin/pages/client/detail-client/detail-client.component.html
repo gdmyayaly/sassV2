@@ -1,0 +1,31 @@
+<!-- <div class="text-start">
+    <a [routerLink]="['/admin','client']" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+      Back
+    </a>
+</div> -->
+
+
+<!-- Breadcrumb -->
+<app-breadcrumbs [current]="'Détail Client'" [dataList]="breadcrumbsList"></app-breadcrumbs>
+
+
+<div class="row mt-3">
+  <div class="col-12 col-md-6 col-lg-3 mt-5" *ngFor="let item of listDetailClient">
+    <div class="relative flex  flex-col rounded-xl bg-gray-300 bg-clip-border text-gray-700 shadow-md">
+      <div class="relative mx-4 h-40 overflow-hidden rounded-xl bg-grey-gray-500 bg-clip-border text-white  shadow-grey-gray-500/40 bg-gradient-to-r from-grey-500 to-grey-600">
+          <img src="{{item.icon}}" alt="logo " style="width: 100%;height: 100%;">
+      </div>
+      <div class="p-6">
+          <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+            {{item.name}}
+          </h5>
+      </div>
+      <div class="p-6 pt-0">
+          <a routerLink="{{item.baseUrl}}/{{idClient}}" class="mt-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+              Configurer
+          </a>
+      </div>
+    </div> 
+  </div>
+</div>
+

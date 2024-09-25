@@ -1,0 +1,16 @@
+.contenue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 56px);
+    margin: 15px 0;
+ }
+.formulaire{
+    background: #fff;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 12%);    
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+ion-icon{
+    font-size: 14px;
+}

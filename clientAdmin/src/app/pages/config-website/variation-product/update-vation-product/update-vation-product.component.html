@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Configutation du site</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container pt-5">
+    <form [formGroup]="variationProduct" class="m-2 formulaire">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" formControlName="nom" id="nom">
+      </div>
+      <div class="form-group" *ngFor="let item of listValeur;let index = index;">
+        <label for="valeur{{index}}">Valeur {{index}}</label>
+        <input type="text" class="form-control" formControlName="valeur{{index}}" id="valeur{{index}}" >
+      </div>
+      <ion-button (click)="addValeur()">
+        <ion-icon name="add-circle-outline" ></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="listValeur.length>1" color="danger" (click)="removeValeur()">
+        <ion-icon name="remove-circle-outline"  ></ion-icon>
+      </ion-button>
+      <ion-button expand="block" [disabled]="!variationProduct.valid" (click)="Valider()">Modfier Variation</ion-button>
+    </form>
+  </div>
+</ion-content>

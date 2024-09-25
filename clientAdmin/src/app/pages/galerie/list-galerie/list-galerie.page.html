@@ -1,0 +1,122 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gallerie
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="header_web">
+    <div class="header_box">
+      <ion-button color="{{selectedTabName=='Tout' ? 'dark' : 'primary'}}" (click)="selectedTab('Tout')">Tout</ion-button>
+      <ion-button color="{{selectedTabName=='Photos' ? 'dark' : 'primary'}}" (click)="selectedTab('Photos')">Photos</ion-button>
+      <ion-button color="{{selectedTabName=='Videos' ? 'dark' : 'primary'}}" (click)="selectedTab('Videos')">Videos</ion-button>
+      <!-- <ion-button color="{{selectedTabName=='Documents' ? 'dark' : 'primary'}}" (click)="selectedTab('Documents')">Documents</ion-button> -->
+    </div>
+    <!-- <div class="filtre">
+      <div class="form-group">
+        <ion-searchbar placeholder="Recherche..."></ion-searchbar>
+      </div>
+    </div> -->
+  </div>
+  <div class="content_data container-fluid pb-5">
+    <!-- <ion-searchbar placeholder="Recherche..." class="search_mobile"></ion-searchbar> -->
+    <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3" *ngFor="let item of listMedia">
+        <ion-card>
+          <div *ngIf="item.documentType.startsWith('image')">
+            <img [alt]="item.documentOriginalName" class="img_card" [src]="item.documentUrl" />
+          </div>
+          <div *ngIf="item.documentType.startsWith('video')">
+            <video [src]="item.documentUrl" controls width="100%" height="250px"></video>
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{item.documentOriginalName}}</ion-card-title>
+            <ion-card-subtitle>{{item.cretedAt |date :'dd/MM/YYYY'}}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-button color="dark" (click)="previewImg(item)">
+              <ion-icon slot="start" name="eye-outline"></ion-icon>Visionner
+            </ion-button>
+            <!-- <ion-button color="medium" (click)="editImg(item)">
+              <ion-icon slot="start" name="create-outline"></ion-icon>Modifier
+            </ion-button> -->
+            <!-- <ion-button (click)="dowloadImg(item)">
+                <ion-icon slot="start" name="cloud-download-outline"></ion-icon>Télécharger
+            </ion-button> -->
+            <ion-button color="danger" (click)="removeImg(item)" >
+              <ion-icon slot="start" name="trash-outline"></ion-icon>Supprimer
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of listMedia" size="12" size-xl="3" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <img alt="Silhouette of mountains" [src]="item.documentUrl" />
+            <ion-card-header>
+              <ion-card-title>{{item.documentOriginalName}}</ion-card-title>
+              <ion-card-subtitle>{{item.cretedAt |date :'dd/MM/YYYY'}}</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <ion-button color="dark" (click)="previewImg(item)">
+                <ion-icon slot="start" name="eye-outline"></ion-icon>Visionner
+              </ion-button>
+              <ion-button color="medium" (click)="editImg(item)">
+                <ion-icon slot="start" name="create-outline"></ion-icon>Modifier
+              </ion-button>
+              <ion-button (click)="dowloadImg(item)">
+                <ion-icon slot="start" name="cloud-download-outline"></ion-icon>Télécharger
+              </ion-button>
+              <ion-button color="danger" (click)="removeImg(item)" >
+                <ion-icon slot="start" name="trash-outline"></ion-icon>Supprimer
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  </div>
+  <ion-tabs class="tabsNav">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [selected]="item.name == selectedTabName" *ngFor="let item of listMenuMobile" (click)="selectedTab(item.name)">
+        <ion-icon name="{{item.icon}}"></ion-icon> {{item.name}}
+      </ion-tab-button>
+      <!-- <ion-tab-button >
+        <ion-icon name="camera-outline"></ion-icon> Photos
+      </ion-tab-button>
+      <ion-tab-button >
+        <ion-icon name="film-outline"></ion-icon> Videos
+      </ion-tab-button>
+      <ion-tab-button >
+        <ion-icon name="document-outline"></ion-icon>
+        Documents
+      </ion-tab-button> -->
+    </ion-tab-bar>
+  </ion-tabs>
+
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" style="margin-bottom: 50px;">
+    <ion-fab-button color="light" class="mt-3">
+      <ion-icon name="add-outline" routerLink="/galerie/add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-alert
+  [isOpen]="showOpenAlert"
+  header="Alert!"
+  message="Êtes-vous sûr de vouloir supprimer cette image, cela entrenera ça disparition dans les produits concerner aussi et elle sera remplacer par votre logo"
+  [buttons]="alertButtons"
+  (didDismiss)="setResult($event)"
+></ion-alert>
+</ion-content>

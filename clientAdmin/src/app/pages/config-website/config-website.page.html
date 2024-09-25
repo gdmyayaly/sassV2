@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Configutation du site</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <ion-card [routerLink]="['website']">
+        <div class="img_illustration">
+          <img src="assets/img/website_edit.svg" alt="Configuration des pages web">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Page Web</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Personnaliser chacune de vos pages web en modifiants les textes et images
+        </ion-card-content>
+        <div class="text-center">
+          <ion-button color="dark">Decouvrir</ion-button>
+        </div>
+      </ion-card>
+
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <ion-card [routerLink]="['variation-product']">
+        <div class="img_illustration">
+          <img src="assets/img/variation_edit.svg" alt="Configuration des variations de produits">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Variation produit</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Personnaliser les différentes champs de variation de vos produits
+        </ion-card-content>
+        <div class="text-center">
+          <ion-button color="dark">Decouvrir</ion-button>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+ </div>
+</ion-content>

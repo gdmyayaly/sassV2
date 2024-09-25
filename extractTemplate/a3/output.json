@@ -1,0 +1,35 @@
+{
+  "content": {
+    "text": {
+      "text_0": "William Smith, CEO",
+      "text_1": "You can freely use Waso Strategy for your website project. Thank you for visiting Tooplate.",
+      "text_2": "About",
+      "text_3": "02/05",
+      "text_4": "Consulting Agency",
+      "text_5": "Helping small businesses since 2001",
+      "text_6": "Waso Strategy is a Bootstrap 5 HTML template for your business. You may use this template for any purpose. You may not redistribute the template ZIP file on any other website.",
+      "text_7": "You may support a little PayPal donation to Tooplate by visiting our",
+      "text_8": "contact page",
+      "text_9": ". Thank you.",
+      "text_10": "We\\'re growing business dolor",
+      "text_11": "Join us",
+      "text_12": "How did you about us?",
+      "text_13": "Lorem ipsum dolor sit consectetur"
+    },
+    "images": {
+      "image_0": "../2130_waso_strategy/images/peter-jones-WZROBIlY8Rg-unsplash.jpg"
+    },
+    "links": {
+      "link_8": "https://www.tooplate.com/contact",
+      "link_11": "#section_3"
+    }
+  },
+  "styles": {
+    "style_12": {
+      "color": "rgb(255, 64, 128)",
+      "font_size": ".83em",
+      "font_weight": "bold",
+      "background_color": "rgba(0, 0, 0, 0)"
+    }
+  }
+}

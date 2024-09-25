@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Page Personaliser</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+ <div class="container">
+  <p style="text-align: center;line-height: 40px;margin: 5px;">
+    <ion-button routerLink="/config-website/website" color="dark" fill="outline">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      Page Web
+    </ion-button>
+    </p>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of detailSectionType">
+        <ion-card>
+          <img alt="Illustration de la section {{item.section.name}}" src="{{item.section.image}}" />
+          <ion-card-header>
+            <ion-card-title>{{item.section.name}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{item.section.type}}
+
+            
+          </ion-card-content>
+          <div style="text-align: center;" class="my-2">
+            <ion-button  color="dark">Prévisualisation</ion-button>
+            <!-- <ion-button  color="dark" routerLink="{{item.section.urlPreview}}">Explorer</ion-button> -->
+          </div>
+  
+        </ion-card>
+      </div>
+    </div>
+ </div>
+</ion-content>

@@ -1,0 +1,18 @@
+<div id="myModal" class="modal" >
+
+  <div class="modal-content">
+    <span class="close" (click)="closeAlert()">&times;</span>
+    <div class="row">
+      <div class="col-6 col-md-6 col-lg-4" *ngFor="let item of selectedMediaService.listMedia; index as index;">
+        <ion-card >
+          <span class="check" *ngIf="isSelected(item)"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+          <div *ngIf="item.documentType.startsWith('image')">
+            <img (click)="selected(item)" alt="{{item.documentOriginalName}}" [src]="item.documentUrl" style="max-height: 250px;" />
+          </div>
+        </ion-card>
+      </div>
+    </div>
+  <ion-button (click)="submitSelection()">Valider</ion-button>
+  </div>
+
+</div>

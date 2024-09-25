@@ -1,0 +1,113 @@
+  <div class="text-start">
+      <a [routerLink]="['/admin','client']" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+        Back
+      </a>
+  </div>
+<div class="mt-4">
+    <form [formGroup]="clientAdd" class="row">
+      <div class="col-12 col-md-6">
+        <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <h3 class="text-center">Entreprise</h3>
+          <div class="row">
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="nomEntreprise">nomEntreprise</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="nomEntreprise" id="nomEntreprise" aria-describedby="nomEntrepriseHelp">
+              <small id="nomEntrepriseHelp" class="form-text text-muted">nomEntreprise</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="description">Description</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="description" id="description" aria-describedby="descriptionHelp">
+              <small id="descriptionHelp" class="form-text text-muted">description</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="telephoneRepresentant">telephoneRepresentant</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="telephoneRepresentant" id="telephoneRepresentant" aria-describedby="telephoneRepresentantHelp">
+              <small id="telephoneRepresentantHelp" class="form-text text-muted">telephoneRepresentant</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="emailEntreprise">emailEntreprise</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="emailEntreprise" id="emailEntreprise" aria-describedby="emailEntrepriseHelp">
+              <small id="emailEntrepriseHelp" class="form-text text-muted">emailEntreprise</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="adresse">adresse</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="adresse" id="adresse" aria-describedby="adresseHelp">
+              <small id="adresseHelp" class="form-text text-muted">adresse Boutique</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="websiteType">websiteType</label>
+              <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="websiteType" formControlName="websiteType">
+                <option value="Ecommerce">Ecommerce</option>
+                <option value="Vitrine">Vitrine</option>
+              </select>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="galerieSizeLimit">galerieSizeLimit</label>
+              <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="galerieSizeLimit" formControlName="galerieSizeLimit">
+                <option value="2000000000">2Go</option>
+                <option value="5000000000">5GO</option>
+                <option value="10000000000">10GO</option>
+              </select>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="dateDebutAbonnement">dateDebutAbonnement</label>
+              <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="dateDebutAbonnement" id="dateDebutAbonnement" aria-describedby="dateDebutAbonnementHelp">
+              <small id="dateDebutAbonnementHelp" class="form-text text-muted">dateDebutAbonnement</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="dateFinAbonnement">dateFinAbonnement</label>
+              <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="dateFinAbonnement" id="dateFinAbonnement" aria-describedby="dateFinAbonnementHelp">
+              <small id="dateFinAbonnementHelp" class="form-text text-muted">dateFinAbonnement</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="linkWebsite">linkWebsite</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="linkWebsite" id="linkWebsite" aria-describedby="linkWebsiteHelp">
+              <small id="linkWebsiteHelp" class="form-text text-muted">linkWebsite Ex : https://yayaly.xyz (Sans le /)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="block  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <h3 class="text-center">Information du client</h3>
+          <div class="row">
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="prenom">prenom</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="prenom" id="prenom" aria-describedby="prenomHelp">
+              <small id="prenomHelp" class="form-text text-muted">prenom Client</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="nom">nom</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="nom" id="nom" aria-describedby="nomHelp">
+              <small id="nomHelp" class="form-text text-muted">nom Client</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="telephone">telephone</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="telephone" id="telephone" aria-describedby="telephoneHelp">
+              <small id="telephoneHelp" class="form-text text-muted">telephone</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="email">email</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="email" id="email" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">email Client</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="username">username</label>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="username" id="username" aria-describedby="usernameHelp">
+              <small id="usernameHelp" class="form-text text-muted">username</small>
+            </div>
+            <div class="mb-2 col-12 col-md-6">
+              <input type="file" name="file" id="file" class="inputfile" #Image accept="image/*" (change)="handleFileInput($event)" />
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file">Galerie Mobile</label>
+            </div>
+          </div>
+          <div *ngIf="files">
+            <img [src]="files.url" alt="{{files.name}}" style="max-height: 250px;">
+          </div>
+          <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" [disabled]="!clientAdd.valid" (click)="saveData()">Valider</button>
+        </div>
+      </div>
+    </form>
+</div>
+
+  
