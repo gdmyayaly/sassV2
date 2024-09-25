@@ -1,0 +1,41 @@
+.seemore_bt {
+    width: 170px;
+    margin: 0 auto;
+}
+.seemore_bt a {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #252525;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.seemore_bt a:hover {
+    color: #ffffff;
+    background-color: #000;
+}
+.btn-seclect{
+    margin: 5px;
+    background-color: #fff;
+    padding: 5px 20px;
+    color: black;
+    border: none;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+}
+.btn-seclect:hover,.btn-seclect:active{
+    color: #fff;
+    background-color: #000 !important;
+    border:none !important;
+}
+
+.btn-seclect.selected{
+    box-shadow: rgba(0, 0, 0, 0.119) 0px 0px 5px 5px;
+    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3) ;
+    background-color: #000;
+    color: white;
+}

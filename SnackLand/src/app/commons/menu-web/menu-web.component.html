@@ -1,0 +1,44 @@
+<nav>
+  <div class="wrapper">
+    <div class="logo"><a routerLink="/">
+      <img src="assets/images/logo.png" alt="Logo" height="50px">
+    </a></div>
+    <input type="radio" name="slider" id="menu-btn">
+    <input type="radio" name="slider" id="close-btn">
+    <ul class="nav-links">
+      <label for="close-btn" class="btn close-btn"><i-feather name="x-circle"></i-feather></label>
+      <li><a routerLink="/">Accueil</a></li>
+      <li><a routerLink="/boutique">Boutique</a></li>
+      <li><a routerLink="/">Contact</a></li>
+    </ul>
+    <div class="d-none d-lg-block">
+      <a *ngIf="socialData?.facebook!=''" href="{{socialData?.facebook}}" target="_blank" class="custom-icon" >
+        <i-feather name="Facebook"></i-feather>
+      </a>
+      <a *ngIf="socialData?.instagram!=''" href="{{socialData?.instagram}}" class="custom-icon" >
+        <i-feather name="Instagram"></i-feather>
+      </a>
+  </div>
+    <label for="menu-btn" class="btn menu-btn"><i-feather name="menu"></i-feather></label>
+  </div>
+</nav>
+
+<div class="mobile_contact">
+  <div class="call_user">
+      <p>
+          <a href="tel:+221{{socialData?.numero}}" target="_blank">
+              <i class="fas fa-phone-alt"></i>
+              Appeler
+          </a>
+      </p>
+  </div>
+  <div class="whatsapp_user">
+      <p>
+          <a href="https://wa.me/221{{socialData?.numero}}?text={{socialData?.homemessage}}" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+              Discuter
+          </a>
+      </p>
+
+  </div>
+</div>

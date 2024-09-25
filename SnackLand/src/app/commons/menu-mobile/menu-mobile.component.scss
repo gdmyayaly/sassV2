@@ -1,0 +1,33 @@
+.mobile_contact{display: none;}
+@media screen and (max-width: 760px) {
+
+    .mobile_contact {
+        display: block;
+        height: 50px;
+        width: 100%;
+        z-index: 99;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+    }
+    .mobile_contact .call_user {
+        height: 100%;
+        background-color: var(--secondary-color);
+        width: 50%;
+        border-radius: 0px 40px 0px 0px;
+    }
+    .mobile_contact .whatsapp_user {
+        height: 100%;
+        background-color: #25D366;
+        width: 50%;
+        border-radius: 40px 0px 0px 0px;
+    }
+    .mobile_contact p {
+        text-align: center;
+        padding-top: 10px;
+        font-size: 20px;
+        a{
+            color: white;
+        }
+    }
+}

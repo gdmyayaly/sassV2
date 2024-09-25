@@ -1,0 +1,88 @@
+.header-info{
+    h1{
+        font-size: 25px;
+    }
+}
+.site-header {
+    // background-color: var(--section-bg-color);
+    position: relative;
+    overflow: hidden;
+    margin-top: 25px;
+  }
+  
+  .site-header.section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  .site-header.section-padding-img {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+  .header-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+  }
+/*---------------------------------------
+  CONTACT              
+-----------------------------------------*/
+.contact-info {
+    padding: 10px 5px;
+  }
+  
+  .contact-form .form-control {
+    border-color: var(--grey-color);
+    font-weight: var(--font-weight-normal);
+  }
+  
+  .form-floating>label {
+    color: var(--grey-color);
+    font-weight: var(--font-weight-normal);
+  }
+  
+  .contact-form button[type='submit'] {
+    background: var(--dark-color);
+    border: none;
+    // border-radius: 100px;
+    color: var(--white-color);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    // padding: 16px;
+    margin: 10px 0;
+  }
+  
+  .contact-form button[type='submit']:hover {
+    background: var(--primary-color);
+  }
+  .social-icon{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    .social-icon-link{
+        margin: 0   ;
+        margin-right: 10px;
+        i-feather{ 
+            color: var(--secondary-color);
+            width: 40px;
+        }
+    }
+  }
+@media screen and (max-width: 760px) {
+    /* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
+    .site-header.section-padding-img {
+      padding: 2rem 0;
+    }
+    .header-info{
+      h1{font-size: 18px;}
+    }
+    .header-image{
+      display: none;
+      // left: 50%;
+      // right: 50%;
+      // transform: translate(-50%, 0%);
+    }
+}

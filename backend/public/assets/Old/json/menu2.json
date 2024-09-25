@@ -1,0 +1,48 @@
+{
+    "Header":{
+        "backgroud":"#000",
+        "containerName":"Header",
+        "Horloge":{
+                "name":"Horloge",
+                "tag":"clock",
+                "value":"far fa-clock",
+                "type":"icon",
+                "textValue":"Mon-Fri 10:00-19:00",
+                "url":"",
+                "isMultiple":false,
+                "textMultiple":[],
+                "style":{
+                    "color":"#000",
+                    "font-size":"",
+                    "backgroud-color":"",
+                    "font-weigh":""
+                }
+        },
+        "Phone":{
+                "name":"Phone",
+                "tag":"phone",
+                "value":"fas fa-mobile-alt",
+                "type":"icon",
+                "textValue":"240-480-9600",
+                "url":"",
+                "isMultiple":false,
+                "textMultiple":[],
+                "style":{
+                    "color":"#ff4080",
+                    "font-size":"",
+                    "backgroud-color":"",
+                    "font-weigh":""
+                }
+        }
+        
+    },
+    "ConfigMenu":{
+        "containerName":"Configuration Menu",
+        "data":{
+            "color":"#717275",
+            "font-size":"14px",
+            "backgroud":"#fff",
+            "font-weigh":"400"
+        }
+    }
+}

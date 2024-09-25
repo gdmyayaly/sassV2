@@ -1,0 +1,62 @@
+<div id="products">
+    <div class="container">
+      <div class="producat_wrapper" data-aos="flip-left">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="producat_image">
+                    <div class="img_thumbnail">
+                      <img src="assets/images/produit1.png" alt="" />
+                      <div class="img_small">
+                        <img
+                          src="assets/images/produit1.png"
+                          alt=""
+                          class="active"
+                        />
+                        <img src="assets/images/produit1.png" alt="" />
+                        <img src="assets/images/produit1.png" alt="" />
+                        <img src="assets/images/produit1.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="producat_content">
+                    <p class="company_txt">Noix de cajou</p>
+                    <h2>Noix d'anacarde de 500g</h2>
+                    <p class="producat_des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique corporis, adipisci est rerum sit laboriosam ipsa dolorem necessitatibus quidem perferendis! Soluta nobis repellat sunt quo temporibus modi ratione consequatur exercitationem. 
+                    </p>
+                    <div class="price">
+                      <div class="dicscount_price">
+                        <p class="normal_price">12 500Frs</p>
+                        <p><span class="discount">50%</span></p>
+                      </div>
+                      <p class="total_price">25 000Frs</p>
+                    </div>
+                    <div class="product__details__button">
+                        <div class="quantity">
+                            <span>Quantité</span>
+                            <div class="pro-qty"><span class="dec qtybtn">-</span>
+                                <input type="text" value="1">
+                            <span class="inc qtybtn">+</span></div>
+                        </div>
+                        <a href="https://wa.me/221784338388?text=Message de vente from test http://bmb.yayaly.xyz/achats/yaya" class="cart-btn"><span class="icon_bag_alt"></span> Commander </a>
+                    </div>
+                    
+                  </div>
+            </div>
+
+        </div>
+
+
+      </div>
+    </div>
+</div>
+<div class="container pb-4" data-aos="fade-up">
+    <h3 class="text-center my-5">Nos autres gammes de produits</h3>
+    <div class="row mb-5" data-aos="zoom-in">
+        <div class="col-lg-4 col-md-6 col-12" *ngFor="let user of ['','',''];">
+            <app-card-product></app-card-product>
+        </div>
+    </div>
+</div>

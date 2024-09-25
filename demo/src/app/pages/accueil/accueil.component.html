@@ -1,0 +1,21 @@
+<app-banner1></app-banner1>
+<app-about-me></app-about-me>
+<div class="container">
+    <div class="row">
+       <div class="col-sm-12">
+          <!-- <h1 class="product_taital">{{'title' |translate}}</h1> -->
+          <p class="product_text">Explorer notre large gammes de produits adapter a chacune de vos besoins</p>
+       </div>
+    </div>
+    <div class="product_section">
+        <div class="row my-5">
+            <button class="btn btn-primary btn-seclect" *ngFor="let cat of listCat" [ngClass]="{'selected': cat === selectCat}" (click)="changeCatSelected(cat)">{{cat}}</button>
+        </div>
+     <div class="row mb-5">
+         <div class="col-lg-4 col-md-6 col-12" *ngFor="let user of ['','','','','','','',''];">
+             <app-card-product></app-card-product>
+         </div>
+     </div>
+       <div class="seemore_bt"><a href="#" title="Voir plus de produits">Voir Plus</a></div>
+    </div>
+ </div>
