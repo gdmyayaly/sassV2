@@ -1,0 +1,30 @@
+.about-image-wrap {
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image-info {
+  background: linear-gradient(to top, #000000, transparent 90%);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 40px;
+}
+
+.about-image {
+  border-radius: 20px;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-thumb {
+  background: #f9c10b;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  padding: 40px;
+  height: 100%;
+}

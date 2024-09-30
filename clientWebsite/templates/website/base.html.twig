@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ asset('common/fontawesome/css/all.css') }}">
+        <link rel="stylesheet" href="{{ asset('common/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('common/css/style.css') }}">
+        {% block meta %}{% endblock %}
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        {% block menu %}{% endblock %}
+        <div class="body-content">
+            {% block body %}{% endblock %}
+        </div>
+       <script src="{{ asset('common/js/jquery.js') }}"></script>
+       <script src="{{ asset('common/bootstrap/js/bootstrap.js') }}"></script>
+        {% block js %}
+            {# {% block importmap %}{{ importmap('app') }}{% endblock %} #}
+        {% endblock %}
+    </body>
+</html>

@@ -57,21 +57,22 @@ class Section
 
     #[ORM\Column(length: 255)]
     #[Groups(['list'])]
-    private ?string $css = null;
-
-    #[ORM\Column(length: 255)]
-    #[Groups(['list'])]
     private ?string $path = null;
-
-    #[ORM\Column(length: 255)]
-    #[Groups(['list'])]
-    private ?string $js = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
     private ?bool $isDeleted = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $Css = [];
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private ?array $Js = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $demoUrl = null;
 
     public function __construct()
     {
@@ -218,17 +219,6 @@ class Section
         return $this;
     }
 
-    public function getCss(): ?string
-    {
-        return $this->css;
-    }
-
-    public function setCss(string $css): static
-    {
-        $this->css = $css;
-
-        return $this;
-    }
 
     public function getPath(): ?string
     {
@@ -242,17 +232,6 @@ class Section
         return $this;
     }
 
-    public function getJs(): ?string
-    {
-        return $this->js;
-    }
-
-    public function setJs(?string $js): static
-    {
-        $this->js = $js;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -278,5 +257,45 @@ class Section
         return $this;
     }
 
+    public function getCss(): array
+    {
+        return $this->Css;
+    }
+
+    public function setCss(array $Css): static
+    {
+        $this->Css = $Css;
+
+        return $this;
+    }
+
+    public function getJs(): ?array
+    {
+        return $this->Js;
+    }
+
+    public function setJs(?array $Js): static
+    {
+        $this->Js = $Js;
+
+        return $this;
+    }
+
+    public function getDemoUrl(): ?string
+    {
+        return $this->demoUrl;
+    }
+
+    public function setDemoUrl(string $demoUrl): static
+    {
+        $this->demoUrl = $demoUrl;
+
+        return $this;
+    }
+
+    public function decodeContent()
+    {
+        return json_decode( $this->content);
+    }
    
 }

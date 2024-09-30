@@ -1,0 +1,17 @@
+{% extends 'website/base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block meta %}{% endblock %}
+{% block css %}
+    {% for item in section.Css %}
+        <link rel="stylesheet" href="/{{item}}">
+    {% endfor %}
+{% endblock %}
+{% block body %}
+        {% include section.path  with { 'section': section.decodeContent } %}
+{% endblock %}
+{% block js %}
+    {% for js in section.js %}
+        <script src="/{{js}}"></script>
+    {% endfor %}
+{% endblock %}

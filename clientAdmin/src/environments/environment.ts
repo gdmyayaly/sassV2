@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // urlApi:"https://sassback.yayaly.xyz/",
-  urlApi:"http://127.0.0.1:8002/",
+  urlApi:"http://127.0.0.1:8000/",
 
 };
 

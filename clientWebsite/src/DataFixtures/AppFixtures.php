@@ -30,7 +30,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setUsername('admin');
         $user->setRoles(["ROLE_ADMIN"]);
-        $password = $this->hasher->hashPassword($user, 'Welcome123@');
+        $password = $this->hasher->hashPassword($user, 'welcome');
         $user->setPassword($password);
         $manager->persist($user);
         $tabsSection=[
@@ -40,7 +40,6 @@ class AppFixtures extends Fixture
             ["nom"=>"CardProduct","detail"=>"Modules pour la gestion des CardProducts"],
             ["nom"=>"Menu","detail"=>"Modules pour la gestion des menu"],
             ["nom"=>"Footer","detail"=>"Modules pour la gestion des Footer"],
-
             // ["nom"=>"About","type"=>"section","detail"=>"Section qui contiendra toutes les différentes section about dans le page web"],
             // ["nom"=>"Banner","type"=>"section","detail"=>"Section qui contiendra toutes les différentes bannière"],
             // ["nom"=>"CardProduct","type"=>"section","detail"=>"Section qui contiendra toutes les différentes model de card qui serviront a afficher les produits"],
